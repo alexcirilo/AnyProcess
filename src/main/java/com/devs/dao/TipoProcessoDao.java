@@ -1,0 +1,57 @@
+package com.devs.dao;
+
+import com.devs.model.TipoProcesso;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
+
+import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+public class TipoProcessoDao {
+
+    JdbcTemplate template;
+
+    public void setTemplate(JdbcTemplate template) {
+        this.template = template;
+    }
+
+    public TipoProcessoDao(DataSource dataSource) {
+        this.template = new JdbcTemplate(dataSource);
+    }
+
+    public int save(TipoProcesso tp){
+        String sql = "INSERT INTO tipo_processo (nome) VALUES ('"+tp.getNome()+"')";
+        return template.update(sql);
+    }
+
+    public TipoProcesso get(final Integer id){
+        String sql = "Select * from tipo_processo where id = "+id;
+        ResultSetExtractor<TipoProcesso> extractor = new ResultSetExtractor<TipoProcesso>() {
+            public TipoProcesso extractData(ResultSet rs) throws SQLException, DataAccessException {
+                if(rs.next()){
+                    String nome = rs.getString("nome");
+                    return new TipoProcesso(id,nome);
+                }
+                return null;
+            }
+        };
+        return template.query(sql,extractor);
+    }
+
+    public List<TipoProcesso> list(){
+        String sql = "Select * from tipo_processo";
+
+        RowMapper<TipoProcesso> rowMapper = new RowMapper<TipoProcesso>() {
+            public TipoProcesso mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Integer id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                return new TipoProcesso(id,nome);
+            }
+        };
+        return template.query(sql,rowMapper);
+    }
+}
