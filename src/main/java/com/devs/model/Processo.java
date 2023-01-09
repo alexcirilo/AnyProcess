@@ -5,11 +5,29 @@ import java.util.Date;
 public class Processo {
 
     private int id;
+
+    private int tipoProcessoId;
     private int numero_processo;
     private Date data_entrada;
     private float valor_recurso;
     private String objetivo;
     private TipoProcesso tipoProcesso;
+
+    public Processo() {
+    }
+
+    public Processo(int numero_processo, Date data_entrada, float valor_recurso, String objetivo, TipoProcesso tipoProcesso) {
+        this.numero_processo = numero_processo;
+        this.data_entrada = data_entrada;
+        this.valor_recurso = valor_recurso;
+        this.objetivo = objetivo;
+        this.tipoProcesso = tipoProcesso;
+    }
+
+    public Processo(int id, int numero_processo, Date data_entrada, float valor_recurso, String objetivo, TipoProcesso tipoProcesso) {
+        this(numero_processo,data_entrada,valor_recurso,objetivo,tipoProcesso);
+        this.id = id;
+    }
 
     public int getId() {
         return id;
@@ -17,6 +35,14 @@ public class Processo {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getTipoProcessoId() {
+        return tipoProcessoId;
+    }
+
+    public void setTipoProcessoId(int tipoProcessoId) {
+        this.tipoProcessoId = tipoProcessoId;
     }
 
     public int getNumero_processo() {
@@ -58,4 +84,17 @@ public class Processo {
     public void setTipoProcesso(TipoProcesso tipoProcesso) {
         this.tipoProcesso = tipoProcesso;
     }
+
+    @Override
+    public String toString() {
+        return "Processo{" +
+                "id=" + id +
+                ", numero_processo=" + numero_processo +
+                ", data_entrada=" + data_entrada +
+                ", valor_recurso=" + valor_recurso +
+                ", objetivo='" + objetivo + '\'' +
+                ", tipoProcesso=" + tipoProcesso +
+                '}';
+    }
 }
+

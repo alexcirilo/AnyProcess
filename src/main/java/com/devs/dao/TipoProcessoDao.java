@@ -28,7 +28,7 @@ public class TipoProcessoDao {
         return template.update(sql);
     }
 
-    public TipoProcesso get(final Integer id){
+    public TipoProcesso getTipoProcessoId(final Integer id){
         String sql = "Select * from tipo_processo where id = "+id;
         ResultSetExtractor<TipoProcesso> extractor = new ResultSetExtractor<TipoProcesso>() {
             public TipoProcesso extractData(ResultSet rs) throws SQLException, DataAccessException {
@@ -43,7 +43,7 @@ public class TipoProcessoDao {
     }
 
     public List<TipoProcesso> list(){
-        String sql = "Select * from tipo_processo";
+        String sql = "Select * from tipo_processo order by id asc";
 
         RowMapper<TipoProcesso> rowMapper = new RowMapper<TipoProcesso>() {
             public TipoProcesso mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -53,5 +53,27 @@ public class TipoProcessoDao {
             }
         };
         return template.query(sql,rowMapper);
+    }
+
+
+    public int update(TipoProcesso tp){
+        String sql = "update tipo_processo set nome = '"+tp.getNome()+"' where id = "+tp.getId();
+        return template.update(sql);
+    }
+
+    public int delete(TipoProcesso tp){
+        String sql = "delete from tipo_processo where id = "+tp.getId();
+        return template.update(sql);
+    }
+
+    public List<TipoProcesso> getTipoProcesso(){
+        return template.query("select * from tipo_processo",new RowMapper<TipoProcesso>(){
+            public TipoProcesso mapRow(ResultSet rs, int row) throws SQLException {
+                TipoProcesso tp=new TipoProcesso();
+                tp.setId(rs.getInt(1));
+                tp.setNome(rs.getString(2));
+                return tp;
+            }
+        });
     }
 }

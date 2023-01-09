@@ -30,7 +30,7 @@ class TipoProcessoDaoTest {
     void testGet(){
         getConnection();
         Integer id = 1;
-        TipoProcesso tipoProcesso = dao.get(id);
+        TipoProcesso tipoProcesso = dao.getTipoProcessoId(id);
         if(tipoProcesso != null){
             System.out.println(tipoProcesso);
         }
@@ -48,5 +48,16 @@ class TipoProcessoDaoTest {
 
         assertFalse(list.isEmpty());
     }
+
+    @Test
+    void testEdit(){
+        getConnection();
+        TipoProcesso processo = new TipoProcesso(1,"Teste Tipo Processo Edit");
+        int result = dao.update(processo);
+
+        assertTrue(result >0);
+    }
+
+
 
 }
