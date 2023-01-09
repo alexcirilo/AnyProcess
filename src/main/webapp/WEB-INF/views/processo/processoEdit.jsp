@@ -3,7 +3,7 @@
 <%@include file="../estrutura/header.jsp" %>
 
 <h2 style="padding:1em">Editar Processos</h2>
-<a href="/AnyProcess/"><button class="btn btn-secondary"><i class="fas fa-home"></i></button></a><br><br>
+<a href="/"><button class="btn btn-secondary"><i class="fas fa-home"></i></button></a><br><br>
 <form:form method="POST" methodAttribute="command" action="editProcessoSave">
     <table style="text-align:center; margin:auto" >
         <tr>

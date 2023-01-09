@@ -1,4 +1,5 @@
-version: '3'
+version: '2.4'
+
 services:
   mysql:
     image: mysql:5.7
@@ -9,6 +10,9 @@ services:
       - "3306:3306"
     volumes:
       - ./database/script_anyprocess.sql:/docker-entrypoint-initdb.d/1.sql
+    networks:
+      anyprocess_net:
+        ipv4_address: 172.21.0.2
   
   anyprocess:
     build: .
@@ -19,6 +23,16 @@ services:
       - 8080:8080
     depends_on:
       - mysql
-
+    networks:
+      anyprocess_net:
+        ipv4_address: 172.21.0.3
+networks:
+  anyprocess_net:
+    driver: bridge
+    ipam:
+      config:
+        -
+          subnet: 172.21.0.0/24
+          gateway: 172.21.0.1
 
 

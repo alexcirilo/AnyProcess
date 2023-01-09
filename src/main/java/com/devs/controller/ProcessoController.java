@@ -42,7 +42,7 @@ public class ProcessoController {
             return "processo/processoJaExiste";
         }
         dao.save(p);
-        return "redirect:processo/viewProcesso";
+        return "redirect:/viewProcesso";
     }
 
     @RequestMapping("/viewProcesso")
@@ -60,7 +60,7 @@ public class ProcessoController {
         List<TipoProcesso> listTipoProcesso=tpDao.getTipoProcesso();
         m.addAttribute("list",list);
         m.addAttribute("listTipoProcesso",listTipoProcesso);
-        return "processo/viewProcesso";
+        return "redirect:/viewProcesso";
     }
 
 

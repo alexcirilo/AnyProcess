@@ -7,5 +7,5 @@
     <h1 style="text-align:center; padding:2em">AnyProcess</h1>
 
 <h3>Já existe um processo cadastrado com esse número!</h3>
-<a href="/AnyProcess/viewProcesso"><button class="btn btn-primary">Voltar</button></a><br><br>
+<a href="/viewProcesso"><button class="btn btn-primary">Voltar</button></a><br><br>
 <%@include file="../estrutura/footer.jsp" %>

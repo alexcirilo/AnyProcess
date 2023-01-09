@@ -7,7 +7,7 @@
     pageEncoding="UTF-8"%>
 
 <h2>Processos</h2>
-<a href="/AnyProcess/"><button class="btn btn-secondary"><i class="fas fa-home"><title>Início</title></i></button></a><br><br>
+<a href="/"><button class="btn btn-secondary"><i class="fas fa-home"><title>Início</title></i></button></a><br><br>
 
 <form method="get" action="viewProcessoPorNumero">
 
@@ -56,7 +56,7 @@
    </table>
    <br/>
 
-   <a href="/AnyProcess/processo"><button class="btn btn-success">Novo Processo</button></a>
-   <a href="/AnyProcess/tipoProcesso"><button class="btn btn-primary">Novo Tipo de Processo</button></a>
-   <a href="/AnyProcess/tipoProcessoView"><button class="btn btn-dark">Visualizar Tipos de Processos</button></a>
+   <a href="/processo"><button class="btn btn-success">Novo Processo</button></a>
+   <a href="/tipoProcesso"><button class="btn btn-primary">Novo Tipo de Processo</button></a>
+   <a href="/tipoProcessoView"><button class="btn btn-dark">Visualizar Tipos de Processos</button></a>
    <%@include file="../estrutura/footer.jsp" %>

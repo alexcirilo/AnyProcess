@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="../estrutura/header.jsp" %>
-<a href="/AnyProcess/"><button class="btn btn-secondary"><i class="fas fa-home"><title>Início</title></i></button></a><br><br>
+<a href="/"><button class="btn btn-secondary"><i class="fas fa-home"><title>Início</title></i></button></a><br><br>
 <h2>Tipos de Processo</h2>
 <table class="table table-hover" id="resultados">
     <thead class="table-dark">

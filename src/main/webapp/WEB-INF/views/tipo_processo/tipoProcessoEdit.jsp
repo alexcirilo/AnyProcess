@@ -2,7 +2,7 @@
 <%@include file="../estrutura/header.jsp" %>
 
 <h2>Editar Tipo de Processo</h2>
-<a href="/AnyProcess/"><button class="btn btn-secondary"><i class="fas fa-home" alt="Início"><title>Início</title></i></button></a><br><br>
+<a href="/"><button class="btn btn-secondary"><i class="fas fa-home" alt="Início"><title>Início</title></i></button></a><br><br>
 <form:form method="post" action="editarTipoProcesso">
     <table >
         <tr>
@@ -16,7 +16,7 @@
         <tr>
             <br/>
             <td><input type="submit" class="btn btn-success" value="Salvar" /></td>
-            <td><input type="submit" class="btn btn-success" value="Salvar" /></td>
+
         </tr>
     </table>
 </form:form>

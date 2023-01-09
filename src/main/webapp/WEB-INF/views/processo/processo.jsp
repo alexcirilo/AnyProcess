@@ -3,7 +3,7 @@
 <%@include file="../estrutura/header.jsp" %>
 
 <h2 style="padding:1em">Cadastro de Processos</h2>
-<a href="/AnyProcess/"><button class="btn btn-secondary"><i class="fas fa-home"></i></button></a><br><br>
+<a href="/"><button class="btn btn-secondary"><i class="fas fa-home"></i></button></a><br><br>
 <form:form method="POST" methodAttribute="command" action="salvarProcesso">
     <table style="text-align:center; margin:auto" >
         <tr>
@@ -41,7 +41,7 @@
     </table>
     <tr><br>
         <input class="btn btn-success" type="submit" value="Enviar">
-        <a href="/AnyProcess/viewProcesso"><input class="btn btn-primary" type="button" value="Voltar"></a>
+        <a href="/viewProcesso"><input class="btn btn-primary" type="button" value="Voltar"></a>
     </tr>
 </form:form>
 
